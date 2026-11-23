@@ -1,0 +1,109 @@
+infos:
+  nom: "Aurélien CHATELAIN"
+  titre: "Lead Developer Java / Référent Technique & Qualité Logicielle"
+  accroche: "Lead Developer Java et Référent Technique avec plus de 14 ans d'expérience sur des systèmes critiques et la retraite collective en environnement Agile (SAFe). Expertise Java/Spring et automatisation DevOps (Jenkins, Ansible) orientée qualité logicielle, réduction de la dette technique et fiabilisation des livraisons."
+  contact:
+    email: "achatelain62000@gmail.com"
+    telephone: "06 27 23 70 74"
+    localisation: "Arras / Lille / Remote"
+    github: "https://github.com/sheldonGordon"
+    linkedin: "https://www.linkedin.com/in/aurélien-chatelain/"
+
+competences:
+  - categorie: "Écosystème Java & Backend"
+    items:
+      - "Java (8 / 11)"
+      - "Spring Boot"
+      - "Développement de Batchs"
+      - "APIs & Applications Web"
+      - "Serveur Tomcat"
+
+  - categorie: "Bases de Données & Recherche"
+    items:
+      - "Oracle"
+      - "PostgreSQL"
+      - "Elasticsearch"
+      - "MongoDB"
+
+  - categorie: "DevOps, CI/CD & Automatisation"
+    items:
+      - "Jenkins (Pipelines CI/CD)"
+      - "Ansible (Playbooks & IaC)"
+      - "Git / GitLab / GitHub (workflow Git)"
+      - "Docker"
+      - "Observabilité / logs"
+      - "Provisioning de VMs"
+      - "Industrialisation & Déploiement"
+
+  - categorie: "Qualité Logicielle & Architecture"
+    items:
+      - "Architecture logicielle / API REST / event-driven"
+      - "SonarQube (Audit & Remédiation)"
+      - "Désendettement technique"
+      - "Revue de code"
+      - "Tests unitaires / d'intégration (JUnit, Mockito)"
+      - "Études d'impact"
+      - "Sûreté & Systèmes critiques"
+      - "Attestation de qualité"
+
+  - categorie: "Leadership & Méthodologie"
+    items:
+      - "Lead Technique / Accompagnement"
+      - "Pair programming"
+      - "Animation de communauté technique"
+      - "Agile SAFe"
+      - "Gestion d'incidents & Hotfixes"
+      - "Collaboration PO / BA"
+
+experiences:
+  - poste: "Lead Developer Java / Référent Technique"
+    entreprise: "Inetum (Client : AG2R La Mondiale)"
+    periode: "Janvier 2026 - Présent"
+    contexte: "Pilotage technique d'applications de retraite collective en environnement Agile (SAFe), en lien avec les équipes et les parties prenantes."
+    realisations:
+      - "Accompagnement de l'équipe sur des chantiers de désendettement technique et refactorisation du code existant."
+      - "Co-organisation et animation bimestrielle d'une communauté de développeurs autour de retours d'expérience, veilles technologiques et démonstrations pratiques."
+      - "Optimisation du pipeline CI/CD (Jenkins) pour anticiper la recette et sécuriser les mises en production."
+      - "Mise en place d'une gouvernance qualité logicielle basée sur l'analyse SonarQube, des plans de remédiation ciblés et des points de suivi réguliers avec l'équipe."
+      - "Rédaction de documentations techniques et de dossiers d'attestation de qualité pour valider la conformité des livrables."
+      - "Gestion des hotfixes en production et réalisation d'études d'impact amont."
+
+  - poste: "Développeur Java Senior"
+    entreprise: "Inetum (Client : AG2R La Mondiale)"
+    periode: "Juillet 2023 - Décembre 2025"
+    contexte: "Développement et maintenance évolutive d'applications de retraite collective (Java 8, Spring Boot, Tomcat, Oracle)."
+    realisations:
+      - "Conception et développement de fonctionnalités (APIs, interfaces web, traitements batchs) en collaboration avec les Product Owners et Business Analysts."
+      - "Conduite d'analyses techniques et d'études d'impact sur les nouvelles évolutions fonctionnelles."
+      - "Automatisation des déploiements avec Jenkins et résolution des bugs critiques."
+
+  - poste: "Ingénieur Intégration & Automatisation DevOps"
+    entreprise: "Ministère des Armées"
+    periode: "Juillet 2022 - Juillet 2023"
+    contexte: "Industrialisation des déploiements et transition des environnements de développement vers la production."
+    realisations:
+      - "Automatisation des procédures d'installation et de configuration via des playbooks Ansible et pratiques Infrastructure as Code (IaC)."
+      - "Mise en œuvre de l'Infrastructure as Code (IaC) : provisioning de machines virtuelles, configuration de bases de données et déploiement d'applications web."
+      - "Garantie de la fiabilité et de la répétabilité des livrables pour les environnements de production."
+
+  - poste: "Développeur Java / Concepteur Logiciel (Systèmes d'Arme)"
+    entreprise: "Ministère des Armées"
+    periode: "Juin 2012 - Juillet 2022"
+    contexte: "Conception et développement de logiciels critiques pour des systèmes d'arme."
+    realisations:
+      - "Conception et développement de logiciels critiques pour des systèmes d'arme en Java (Java 8/11)."
+      - "Conception, requêtage et optimisation de requêtes et traitements sur de forts volumes de données (Oracle, PostgreSQL, Elasticsearch, MongoDB), dans le respect des exigences de sûreté, sécurité et traçabilité."
+      - "Application des exigences de sûreté de fonctionnement, sécurité et traçabilité propres aux systèmes de défense."
+
+formations:
+  - diplome: "BSTAT (Brevet Supérieur de Technicien de l'Armée de Terre) - Gestion de projet/Encadrement d'équipe/Expertise technique"
+    ecole: "Ministère des Armées"
+    annee: "2019"
+
+  - diplome: "BSAT (Brevet de Spécialiste de l'Armée de Terre) - Développeur Java"
+    ecole: "Ministère des Armées"
+    annee: "2012"
+
+  - diplome: "BTS Informatique de Gestion - Option développeur d'application"
+    ecole: "Lycée Guy Mollet à Arras"
+    annee: "2010"

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 0; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; color: #2d3748; line-height: 1.4; font-size: 9.5pt; }
+
+        /* Structure en tableau pour forcer le côte à côte sous wkhtmltopdf */
+        .wrapper { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        .col-sidebar { width: 32%; background-color: #1a202c; color: #f7fafc; vertical-align: top; padding: 25px 18px; }
+        .col-main { width: 68%; vertical-align: top; padding: 25px 22px; background-color: #ffffff; }
+
+        /* Sidebar styles */
+        .sidebar h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #4a5568; padding-bottom: 4px; margin-top: 20px; color: #63b3ed; }
+        .sidebar h2:first-child { margin-top: 0; }
+        .contact-list { list-style: none; padding: 0; margin: 0; font-size: 8.5pt; }
+        .contact-list li { margin-bottom: 8px; word-break: break-all; padding-left: 20px; text-indent: -20px;}
+        .skill-group { margin-bottom: 12px; }
+        .skill-cat { font-weight: bold; font-size: 9pt; color: #cbd5e0; margin-bottom: 3px; }
+        .skill-tags { font-size: 8.5pt; color: #e2e8f0; }
+
+        /* Main column styles */
+        .header h1 { margin: 0; font-size: 20pt; color: #1a202c; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.1; }
+        .header .title { font-size: 12pt; color: #3182ce; font-weight: 600; margin-top: 4px; }
+        .accroche { margin-top: 10px; font-style: italic; color: #4a5568; background: #edf2f7; padding: 8px; border-left: 3px solid #3182ce; font-size: 9pt; }
+
+        .section-title { font-size: 11pt; text-transform: uppercase; color: #1a202c; border-bottom: 2px solid #3182ce; padding-bottom: 3px; margin-top: 18px; margin-bottom: 10px; font-weight: bold; }
+        .exp-item { margin-bottom: 14px; }
+        .exp-header { width: 100%; }
+        .exp-role { font-weight: bold; font-size: 10.5pt; color: #2b6cb0; float: left; }
+        .exp-date { font-size: 8.5pt; color: #718096; font-weight: 600; float: right; text-align: right; }
+        .clearfix { clear: both; }
+        .exp-company { font-weight: 600; font-size: 9pt; color: #4a5568; margin-bottom: 2px; }
+        .exp-context { font-size: 8.5pt; font-style: italic; margin-bottom: 4px; color: #4a5568; }
+        .exp-tasks { margin: 0; padding-left: 15px; }
+        .exp-tasks li { margin-bottom: 3px; font-size: 9pt; }
+    </style>
+</head>
+<body>
+    <table class="wrapper">
+        <tr>
+            <!-- COLONNE DE GAUCHE (Sidebar) -->
+            <td class="col-sidebar">
+                <h2>Contact</h2>
+                <ul class="contact-list">
+                    <li>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>
+                        </svg>{{ cv.infos.contact.localisation }}
+                    </li>
+                    <li>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>{{ cv.infos.contact.email }}
+                    </li>
+                    <li>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>{{ cv.infos.contact.telephone }}
+                    </li>
+                    <li>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>{{ cv.infos.contact.github }}
+                    </li>
+                    <li>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+                        </svg>{{ cv.infos.contact.linkedin }}
+                    </li>
+                </ul>
+
+                <h2>Compétences</h2>
+                {% for comp in cv.competences %}
+                <div class="skill-group">
+                    <div class="skill-cat">{{ comp['categorie'] }}</div>
+                    <div class="skill-tags">
+                        {{ comp['items'] | join(' • ') }}
+                    </div>
+                </div>
+                {% endfor %}
+
+                <h2>Formation</h2>
+                {% for form in cv.formations %}
+                <div style="margin-bottom: 8px; font-size: 8.5pt;">
+                    <div style="font-weight: bold;">{{ form.diplome }}</div>
+                    <div style="color: #cbd5e0;">{{ form.ecole }} ({{ form.annee }})</div>
+                </div>
+                {% endfor %}
+            </td>
+
+            <!-- COLONNE DE DROITE (Contenu Principal) -->
+            <td class="col-main">
+                <div class="header">
+                    <h1>{{ cv.infos.nom }}</h1>
+                    <div class="title">{{ cv.infos.titre }}</div>
+                    <div class="accroche">{{ cv.infos.accroche }}</div>
+                </div>
+
+                <div class="section-title">Expériences Professionnelles</div>
+                {% for exp in cv.experiences %}
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">{{ exp.poste }}</span>
+                        <span class="exp-date">{{ exp.periode }}</span>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="exp-company">{{ exp.entreprise }}</div>
+                    {% if exp.contexte %}<div class="exp-context">{{ exp.contexte }}</div>{% endif %}
+                    <ul class="exp-tasks">
+                        {% for task in exp.realisations %}
+                        <li>{{ task }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

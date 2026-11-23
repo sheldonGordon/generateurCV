@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #1f2937;
+            line-height: 1.38;
+            font-size: 9.2pt;
+            background-color: #ffffff;
+        }
+
+        .layout-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        /* Colonne gauche claire */
+        .left-col {
+            width: 33%;
+            vertical-align: top;
+            background-color: #f1f5f9;
+            border-right: 1px solid #cbd5e1;
+            padding: 22px 18px;
+        }
+        .profile-name {
+            margin: 0;
+            font-size: 17pt;
+            font-weight: 800;
+            color: #064e3b;
+            line-height: 1.15;
+        }
+        .profile-role {
+            margin-top: 5px;
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .side-title {
+            font-size: 9.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #064e3b;
+            font-weight: 700;
+            border-bottom: 2px solid #059669;
+            padding-bottom: 3px;
+            margin-top: 18px;
+            margin-bottom: 9px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 8.3pt;
+        }
+        .info-list li {
+            margin-bottom: 6px;
+            color: #334155;
+            word-break: break-word;
+        }
+        .info-list a {
+            color: #065f46;
+            text-decoration: none;
+        }
+
+        .comp-block {
+            margin-bottom: 10px;
+        }
+        .comp-name {
+            font-weight: 700;
+            font-size: 8.6pt;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+        .comp-list {
+            font-size: 8.2pt;
+            color: #374151;
+        }
+
+        .formation-box {
+            margin-bottom: 8px;
+            font-size: 8.4pt;
+        }
+        .formation-title {
+            font-weight: 700;
+            color: #111827;
+        }
+        .formation-meta {
+            color: #4b5563;
+            margin-top: 1px;
+        }
+
+        /* Colonne droite principale */
+        .right-col {
+            width: 67%;
+            vertical-align: top;
+            padding: 22px 24px;
+            background-color: #ffffff;
+        }
+
+        .summary-box {
+            background-color: #ecfdf5;
+            border-left: 3px solid #059669;
+            padding: 9px 12px;
+            font-size: 8.8pt;
+            color: #1f2937;
+            margin-bottom: 16px;
+            line-height: 1.42;
+        }
+
+        .main-title {
+            font-size: 11pt;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #064e3b;
+            font-weight: 700;
+            border-bottom: 1.5px solid #d1fae5;
+            padding-bottom: 3px;
+            margin-bottom: 12px;
+        }
+
+        .mission-card {
+            margin-bottom: 14px;
+        }
+        .mission-top {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .mission-post {
+            font-weight: 700;
+            font-size: 10pt;
+            color: #065f46;
+        }
+        .mission-date {
+            text-align: right;
+            font-size: 8.3pt;
+            font-weight: 600;
+            color: #6b7280;
+            white-space: nowrap;
+        }
+        .mission-org {
+            font-size: 8.8pt;
+            font-weight: 600;
+            color: #374151;
+            margin-top: 1px;
+        }
+        .mission-ctx {
+            font-size: 8.4pt;
+            font-style: italic;
+            color: #4b5563;
+            margin: 2px 0 4px 0;
+        }
+        .mission-bullets {
+            margin: 0;
+            padding-left: 15px;
+        }
+        .mission-bullets li {
+            margin-bottom: 2.5px;
+            font-size: 8.7pt;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body>
+    <table class="layout-table">
+        <tr>
+            <td class="left-col">
+                <h1 class="profile-name">{{ cv.infos.nom }}</h1>
+                <div class="profile-role">{{ cv.infos.titre }}</div>
+
+                <div class="side-title">Contact</div>
+                <ul class="info-list">
+                    <li>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>
+                        </svg>{{ cv.infos.contact.localisation }}
+                    </li>
+                    <li>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>{{ cv.infos.contact.email }}
+                    </li>
+                    <li>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>{{ cv.infos.contact.telephone }}
+                    </li>
+                    <li>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg><a href="{{ cv.infos.contact.github }}">github.com/sheldonGordon</a>
+                    </li>
+                    <li>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+                        </svg><a href="{{ cv.infos.contact.linkedin }}">linkedin.com/in/aurélien-chatelain</a>
+                    </li>
+                </ul>
+
+                <div class="side-title">Compétences</div>
+                {% for comp in cv.competences %}
+                <div class="comp-block">
+                    <div class="comp-name">{{ comp['categorie'] }}</div>
+                    <div class="comp-list">{{ comp['items'] | join(', ') }}</div>
+                </div>
+                {% endfor %}
+
+                <div class="side-title">Formation</div>
+                {% for form in cv.formations %}
+                <div class="formation-box">
+                    <div class="formation-title">{{ form.diplome }}</div>
+                    <div class="formation-meta">{{ form.ecole }} ({{ form.annee }})</div>
+                </div>
+                {% endfor %}
+            </td>
+
+            <td class="right-col">
+                <div class="summary-box">{{ cv.infos.accroche }}</div>
+
+                <div class="main-title">Expériences Professionnelles</div>
+                {% for exp in cv.experiences %}
+                <div class="mission-card">
+                    <table class="mission-top">
+                        <tr>
+                            <td class="mission-post">{{ exp.poste }}</td>
+                            <td class="mission-date">{{ exp.periode }}</td>
+                        </tr>
+                    </table>
+                    <div class="mission-org">{{ exp.entreprise }}</div>
+                    {% if exp.contexte %}<div class="mission-ctx">{{ exp.contexte }}</div>{% endif %}
+                    <ul class="mission-bullets">
+                        {% for task in exp.realisations %}
+                        <li>{{ task }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

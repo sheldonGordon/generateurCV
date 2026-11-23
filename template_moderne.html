@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #2d3748;
+            line-height: 1.4;
+            font-size: 9.5pt;
+            background-color: #ffffff;
+        }
+
+        /* En-tête pleine largeur */
+        .header-banner {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 24px 30px;
+            border-bottom: 4px solid #0284c7;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .header-left {
+            width: 64%;
+            vertical-align: top;
+            padding-right: 15px;
+        }
+        .header-right {
+            width: 36%;
+            vertical-align: top;
+            border-left: 1px solid #334155;
+            padding-left: 18px;
+        }
+        .header-left h1 {
+            margin: 0;
+            font-size: 21pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+        .header-left .title {
+            font-size: 11.5pt;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        .accroche {
+            margin-top: 10px;
+            font-size: 8.8pt;
+            color: #cbd5e1;
+            line-height: 1.45;
+        }
+
+        /* Contacts dans le bandeau */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 8.5pt;
+        }
+        .contact-list li {
+            margin-bottom: 6px;
+            color: #e2e8f0;
+        }
+        .contact-list a {
+            color: #e2e8f0;
+            text-decoration: none;
+        }
+
+        /* Corps du CV en 2 colonnes via tableau */
+        .body-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        .col-main {
+            width: 65%;
+            vertical-align: top;
+            padding: 22px 22px 22px 30px;
+        }
+        .col-side {
+            width: 35%;
+            vertical-align: top;
+            padding: 22px 30px 22px 18px;
+            background-color: #f8fafc;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        /* Titres de sections */
+        .section-title {
+            font-size: 11pt;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0f172a;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 4px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .col-side .section-title {
+            margin-top: 18px;
+        }
+        .col-side .section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* Expériences */
+        .exp-item {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 2px solid #cbd5e1;
+        }
+        .exp-item:first-of-type {
+            border-left: 2px solid #0284c7;
+        }
+        .exp-header {
+            width: 100%;
+        }
+        .exp-role {
+            font-weight: 700;
+            font-size: 10.2pt;
+            color: #0369a1;
+        }
+        .exp-meta {
+            font-size: 8.8pt;
+            color: #475569;
+            font-weight: 600;
+            margin-top: 1px;
+            margin-bottom: 4px;
+        }
+        .exp-date {
+            color: #64748b;
+            font-weight: normal;
+        }
+        .exp-context {
+            font-size: 8.6pt;
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .exp-tasks {
+            margin: 0;
+            padding-left: 15px;
+        }
+        .exp-tasks li {
+            margin-bottom: 3px;
+            font-size: 8.8pt;
+            color: #334155;
+        }
+
+        /* Compétences & Formation */
+        .skill-group {
+            margin-bottom: 12px;
+        }
+        .skill-cat {
+            font-weight: 700;
+            font-size: 9pt;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .skill-badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 600;
+            margin: 0 3px 4px 0;
+        }
+        .edu-item {
+            margin-bottom: 10px;
+            font-size: 8.8pt;
+        }
+        .edu-degree {
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .edu-school {
+            color: #475569;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BANDEAU EN-TÊTE -->
+    <div class="header-banner">
+        <table class="header-table">
+            <tr>
+                <td class="header-left">
+                    <h1>{{ cv.infos.nom }}</h1>
+                    <div class="title">{{ cv.infos.titre }}</div>
+                    <div class="accroche">{{ cv.infos.accroche }}</div>
+                </td>
+                <td class="header-right">
+                    <ul class="contact-list">
+                        <li>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>
+                            </svg>{{ cv.infos.contact.localisation }}
+                        </li>
+                        <li>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>{{ cv.infos.contact.email }}
+                        </li>
+                        <li>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>{{ cv.infos.contact.telephone }}
+                        </li>
+                        <li>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg><a href="{{ cv.infos.contact.github }}">github.com/sheldonGordon</a>
+                        </li>
+                        <li>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+                            </svg><a href="{{ cv.infos.contact.linkedin }}">linkedin.com/in/aurélien-chatelain</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- CORPS DU CV -->
+    <table class="body-table">
+        <tr>
+            <!-- COLONNE PRINCIPALE (Expériences) -->
+            <td class="col-main">
+                <div class="section-title">Expériences Professionnelles</div>
+                {% for exp in cv.experiences %}
+                <div class="exp-item">
+                    <div class="exp-role">{{ exp.poste }}</div>
+                    <div class="exp-meta">{{ exp.entreprise }} <span class="exp-date">| {{ exp.periode }}</span></div>
+                    {% if exp.contexte %}<div class="exp-context">{{ exp.contexte }}</div>{% endif %}
+                    <ul class="exp-tasks">
+                        {% for task in exp.realisations %}
+                        <li>{{ task }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </td>
+
+            <!-- COLONNE LATÉRALE DROITE (Compétences & Formation) -->
+            <td class="col-side">
+                <div class="section-title">Compétences Clés</div>
+                {% for comp in cv.competences %}
+                <div class="skill-group">
+                    <div class="skill-cat">{{ comp['categorie'] }}</div>
+                    <div>
+                        {% for item in comp['items'] %}
+                        <span class="skill-badge">{{ item }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="section-title">Formation</div>
+                {% for form in cv.formations %}
+                <div class="edu-item">
+                    <div class="edu-degree">{{ form.diplome }}</div>
+                    <div class="edu-school">{{ form.ecole }} — {{ form.annee }}</div>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
