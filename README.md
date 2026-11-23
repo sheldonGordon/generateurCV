@@ -8,10 +8,10 @@ avec une mise en page distincte.
 
 | Variante | Template | PDF genere |
 |---|---|---|
-| Classique | `template.html` | `CV_<NOM>_template.pdf` |
-| Moderne | `template_moderne.html` | `CV_<NOM>_template_moderne.pdf` |
-| Editorial | `template_editorial.html` | `CV_<NOM>_template_editorial.pdf` |
-| Compacte | `template_compact.html` | `CV_<NOM>_template_compact.pdf` |
+| Classique | `templates/template.html` | `CV_<NOM>_template.pdf` |
+| Moderne | `templates/template_moderne.html` | `CV_<NOM>_template_moderne.pdf` |
+| Editorial | `templates/template_editorial.html` | `CV_<NOM>_template_editorial.pdf` |
+| Compacte | `templates/template_compact.html` | `CV_<NOM>_template_compact.pdf` |
 
 Dans chaque nom de fichier, les espaces du champ `infos.nom` sont remplaces
 par des caracteres `_`.
@@ -24,7 +24,7 @@ par des caracteres `_`.
   `C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe`
 - Une connexion internet uniquement pour installer les paquets Python
 
-Le chemin wkhtmltopdf est actuellement fixe dans `build_cv.py`. Si
+Le chemin wkhtmltopdf est actuellement fixe dans `src/generateurcv/build_cv.py`. Si
 wkhtmltopdf est installe ailleurs, adaptez la variable `path_wkhtmltopdf`.
 
 ## Installation
@@ -49,14 +49,14 @@ uv sync
 Activer l'environnement virtuel si necessaire, puis lancer :
 
 ```powershell
-python build_cv.py
+uv run generate-cv
 ```
 
-Les quatre PDF sont crees a la racine du projet.
+Les quatre PDF sont crees dans le dossier [output](output).
 
 ## Personnaliser le contenu
 
-Modifier les valeurs dans [cv_data.yaml](cv_data.yaml). Le fichier est
+Modifier les valeurs dans [data/cv_data.yaml](data/cv_data.yaml). Le fichier est
 charge avec l'encodage UTF-8.
 
 Structure attendue :
@@ -111,13 +111,13 @@ injectees sous l'objet `cv`. Exemple :
 {% endfor %}
 ```
 
-Les templates sont automatiquement charges depuis la racine du projet.
+Les templates sont automatiquement charges depuis [templates](templates).
 Toute modification CSS ou HTML doit etre faite dans le template concerne.
 
 Pour generer uniquement certains templates depuis un programme Python :
 
 ```python
-from build_cv import generate_cv
+from generateurcv.build_cv import generate_cv
 
 pdfs = generate_cv([
     "template_moderne.html",
@@ -129,10 +129,10 @@ Sans argument, `generate_cv()` genere les quatre variantes.
 
 ## Fonctionnement
 
-1. `build_cv.py` charge `cv_data.yaml`.
+1. `src/generateurcv/build_cv.py` charge `data/cv_data.yaml`.
 2. Jinja2 rend les templates HTML avec les donnees sous la forme `cv`.
 3. pdfkit appelle wkhtmltopdf pour convertir le HTML en PDF.
-4. Chaque fichier est ecrit a la racine du projet.
+4. Chaque fichier est ecrit dans `output/`.
 
 ## Depannage
 
@@ -142,7 +142,7 @@ Verifier que wkhtmltopdf est bien installe dans :
 `C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe`.
 
 Si une autre installation est utilisee, modifier
-`path_wkhtmltopdf` dans [build_cv.py](build_cv.py).
+`WKHTMLTOPDF` dans [src/generateurcv/build_cv.py](src/generateurcv/build_cv.py).
 
 ### Module Python manquant
 
